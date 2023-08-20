@@ -1,0 +1,29 @@
+# Configurações do MySQL
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/myDataBase
+    username: lab_user
+    password: P455w0RD
+  logging:
+    level:
+      org.springframework.web: DEBUG
+    file:
+      name: log.log
+      # Set the path to the log file
+      max-size: 10MB
+      # Set the maximum size of the log file
+      max-history: 10
+      # Set the maximum number of log files to keep
+    loggers:
+      - name: com.example.app
+        level: DEBUG
+        # Set the logging level for a specific class or package
+    pattern:
+      console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+      file: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+      # Set the logging pattern for the console and file
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
