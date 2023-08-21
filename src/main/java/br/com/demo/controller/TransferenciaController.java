@@ -1,5 +1,6 @@
 package br.com.demo.controller;
 
+import br.com.demo.dto.RespostaDTO;
 import br.com.demo.model.TransferenciaModel;
 import br.com.demo.service.TransferenciaService;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class TransferenciaController {
     private final TransferenciaService transferenciaService;
 
     @PostMapping("/transferir")
-    public ResponseEntity<Void> transferir(@RequestBody TransferenciaModel transferenciaModel) {
+    public ResponseEntity<?> transferir(@RequestBody TransferenciaModel transferenciaModel) {
         transferenciaService.transferir(transferenciaModel);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
