@@ -16,7 +16,7 @@ http://localhost:8080/swagger-ui/index.html#/
 
 ## Melhorias
 
-- Colocar o KAFKA para chamar o serviço de notificações e retirar o scheduled.
+- Colocar o KAFKA para chamar o serviço de notificações e retirar o scheduled com a chamada assíncrona.
 - Configurar as regras de acesso no spring security.
 - Incluir mais testes unitários.
 
