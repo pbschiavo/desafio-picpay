@@ -21,6 +21,10 @@ public class UsuarioService {
     }
 
     public ResponseEntity<RespostaDTO> cadastrarUsuario(UsuarioModel usuarioModel) {
+        boolean usuarioCadastrado = usuarioDao.verificarSeUsuarioExiste(usuarioModel);
+        if (usuarioCadastrado) {
+            return ResponseEntity.badRequest().body(new RespostaDTO("Usuário já cadastrado."));
+        }
         return usuarioDao.cadastrarUsuario(usuarioModel);
     }
 }

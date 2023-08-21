@@ -70,4 +70,17 @@ public class UsuarioDao {
             throw new BadRequestException("Erro ao cadastrar usuário ");
         }
     }
+
+    public boolean verificarSeUsuarioExiste(UsuarioModel usuario) {
+        try {
+            String sql = "SELECT * FROM usuarios WHERE cpf_cnpj = :id OR email = :id";
+            MapSqlParameterSource params = new MapSqlParameterSource()
+                    .addValue("id", usuario.getCpfCnpj())
+                    .addValue("id", usuario.getEmail());
+            return jdbc.queryForObject(sql, params, new UsuarioModelRowMapper()) != null;
+        } catch (Exception e) {
+            log.error("Erro ao buscar usuário: {}", e.getMessage());
+            throw new BadRequestException("Erro ao buscar usuário.");
+        }
+    }
 }
