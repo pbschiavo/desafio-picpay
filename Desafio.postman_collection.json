@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "fa02803f-a603-474b-924a-22a0f3222932",
+		"name": "Desafio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16478385",
+		"_collection_link": "https://universal-moon-983758.postman.co/workspace/Pessoal~81767e26-dcdb-45a8-9dc5-af119499bcd4/collection/16478385-fa02803f-a603-474b-924a-22a0f3222932?action=share&source=collection_link&creator=16478385"
+	},
+	"item": [
+		{
+			"name": "Listar Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}/api/v1/usuario/listarUsuarios",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"usuario",
+						"listarUsuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Marcos\",\r\n    \"cpfCnpj\": \"856.321.432-12\",\r\n    \"email\": \"marcos@gmail.com\",\r\n    \"senha\": \"senha2\",\r\n    \"saldo\": 1000,\r\n    \"tipo\": \"NORMAL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/v1/usuario/cadastrarUsuario",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"usuario",
+						"cadastrarUsuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transferencia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"recebedor\": 6,\r\n    \"pagador\": 10,\r\n    \"valor\": 10.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/v1/transferencia/transferir",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"transferencia",
+						"transferir"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"recebedor\": 6,\r\n    \"pagador\": 10,\r\n    \"valor\": 10.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/actuator/health",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
