@@ -26,14 +26,15 @@ public class TransferenciaService {
     private final UsuarioDao usuarioDao;
 
     public void transferir(TransferenciaModel transferencia) {
-        UsuarioModel usuario = usuarioDao.buscarUsuarioPorId(transferencia.getPagador());
+        UsuarioModel usuarioRecebedor = usuarioDao.buscarUsuarioPorId(transferencia.getRecebedor());
+        UsuarioModel usuarioPagador = usuarioDao.buscarUsuarioPorId(transferencia.getPagador());
         transferenciaDao.validarTransferencia();
-        transferenciaDao.validarTipoUsuario(usuario);
-        transferenciaDao.validarSaldo(transferencia, usuario);
+        transferenciaDao.validarTipoUsuario(usuarioPagador);
+        transferenciaDao.validarSaldo(transferencia, usuarioPagador);
         transferenciaDao.registrarTransacao(transferencia);
         transferenciaDao.atualizaSaldoPagador(transferencia);
         transferenciaDao.atualizaSaldoRecebedor(transferencia);
-        notificacaoDao.registrarNotificacao(transferencia, usuario);
+        notificacaoDao.registrarNotificacao(transferencia, usuarioRecebedor);
         enviaNotificacao(transferencia.getRecebedor());
     }
 

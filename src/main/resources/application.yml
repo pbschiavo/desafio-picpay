@@ -4,6 +4,8 @@ spring:
     url: jdbc:mysql://localhost:3306/myDataBase
     username: lab_user
     password: P455w0RD
+  jmx:
+    enabled: true
   logging:
     level:
       org.springframework.web: DEBUG
@@ -26,4 +28,24 @@ spring:
 springdoc:
   api-docs:
     path: /api-docs
+
+# Configurações gerais do Spring Boot Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # Todos os endpoints estarão expostos
+  endpoint:
+    health:
+      show-details: always # Sempre mostrar detalhes no endpoint de health
+    info:
+      enabled: true # Habilitar o endpoint de informações
+  health:
+    db:
+      enabled: true # Habilitar o indicador de health do banco de dados
+  metrics:
+    enable:
+      jvm: true # Habilitar métricas JVM
+      http.server.requests: true # Habilitar métricas de solicitações HTTP
+
 

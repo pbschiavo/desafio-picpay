@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class UsuarioController {
         return usuarioService.getUsuarios();
     }
 
-    @Operation(summary = "Cadastrar um novo usuários")
+    @Operation(summary = "Cadastrar novos usuários")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Usuário cadastrado com sucesso",
                     content = { @Content(mediaType = "application/json",

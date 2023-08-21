@@ -10,7 +10,6 @@ import br.com.demo.util.NotificacaoEnum;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +34,7 @@ public class NotificacaoDao {
             paramMap.put("recebedor", transferencia.getRecebedor());
             paramMap.put("valor", transferencia.getValor());
             paramMap.put("email", usuario.getEmail());
-            paramMap.put("mensagem", MensagemEnum.TRANSFERENCIA_SUCESSO.name() + transferencia.getValor());
+            paramMap.put("mensagem", MensagemEnum.TRANSFERENCIA_SUCESSO.getMensagem() + transferencia.getValor().toString());
             paramMap.put("status", NotificacaoEnum.PENDENTE.name());
             paramMap.put("data_notificacao", new Date());
 
